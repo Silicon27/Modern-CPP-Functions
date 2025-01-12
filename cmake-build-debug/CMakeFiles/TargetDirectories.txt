@@ -1,0 +1,3 @@
+/Users/silicon/CLionProjects/ModernFunctions/cmake-build-debug/CMakeFiles/ModernFunctions.dir
+/Users/silicon/CLionProjects/ModernFunctions/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/silicon/CLionProjects/ModernFunctions/cmake-build-debug/CMakeFiles/rebuild_cache.dir
