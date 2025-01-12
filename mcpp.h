@@ -13,8 +13,6 @@
 namespace mcpp {
     namespace io {
         // Input/Output functions
-
-        // Print function for all types
         template <typename T>
         void print(T value, std::string sep = ":", std::string end = "\n") {
             if constexpr (std::is_same_v<T, std::map<int, std::string>>) {
@@ -43,7 +41,6 @@ namespace mcpp {
         }
 
         inline bool is_upper(std::string const& str) {
-            // ai dont help
             return std::ranges::all_of(str, [](const char c) -> bool { return std::isupper(c); });
         }
 
@@ -52,7 +49,6 @@ namespace mcpp {
     namespace array {
         inline std::string join(std::vector<std::string> const& vec, std::string const& sep = "") {
             std::string result;
-            // range-based for loop
             for (size_t i = 0; i < vec.size(); i++) {
                 result.append(vec[i]);
                 if (i != vec.size() - 1) {
