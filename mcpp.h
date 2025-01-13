@@ -29,7 +29,6 @@ namespace mcpp {
             else {
                 std::cout << value << std::endl;
             }
-            std::cout << value << std::endl;
         }
 
 
@@ -58,6 +57,72 @@ namespace mcpp {
             return result;
         }
 
+        inline std::vector<int> qsort(std::vector<int> const& vec) { // NOLINT
+            if (vec.size() <= 1) {
+                return vec;
+            }
+            else {
+                int pivot = vec[0];
+                std::vector<int> less;
+                std::vector<int> greater;
+                for (size_t i = 1; i < vec.size(); i++) {
+                    if (vec[i] <= pivot) {
+                        less.push_back(vec[i]);
+                    }
+                    else {
+                        greater.push_back(vec[i]);
+                    }
+                }
+                std::vector<int> result = qsort(less);
+                result.push_back(pivot);
+                std::vector<int> greaterSorted = qsort(greater);
+                result.insert(result.end(), greaterSorted.begin(), greaterSorted.end());
+                return result;
+            }
+        }
+
+        inline std::vector<int> binary_search(std::vector<int> const& vec, int const& target) {
+            int left = 0;
+            int right = vec.size() - 1;
+            while (left <= right) {
+                if (int mid = left + (right - left) / 2; vec[mid] == target) {
+                    return { mid };
+                }
+                else if (vec[mid] < target) {
+                    left = mid + 1;
+                }
+                else {
+                    right = mid - 1;
+                }
+            }
+            return { -1 };
+        }
+    }
+
+
+    // standalone functions
+    inline std::vector<int> range(int start, int end, int step = 1) {
+        std::vector<int> result;
+        for (int i = start; i < end; i += step) {
+            result.push_back(i);
+        }
+        return result;
+    }
+
+    inline std::vector<long int> range(long int start, long int end, long int step = 1) {
+        std::vector<long int> result;
+        for (long int i = start; i < end; i += step) {
+            result.push_back(i);
+        }
+        return result;
+    }
+
+    inline std::vector<long long int> range(long long int start, long long int end, long long int step = 1) {
+        std::vector<long long int> result;
+        for (long long int i = start; i < end; i += step) {
+            result.push_back(i);
+        }
+        return result;
     }
 
 }
